@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div>
       <Container>
-        <div className="py-6 grid md:grid-cols-2 grid-cols-1 justify-between items-center">
+        <div className="md:py-6 mt-16 grid md:grid-cols-2 grid-cols-1 justify-between items-center">
           <div className="space-y-4">
             <h1 className="text-7xl font-bold">Task</h1>
             <h4 className="text-4xl font-semibold">Management Pro</h4>

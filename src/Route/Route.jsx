@@ -41,7 +41,11 @@ const Route = createBrowserRouter([
       },
       {
         path: "/dashboard/newtask",
-        element: <NewTask />,
+        element: (
+          <PrivetRoute>
+            <NewTask />
+          </PrivetRoute>
+        ),
       },
     ],
   },

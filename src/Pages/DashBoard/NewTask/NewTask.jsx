@@ -1,18 +1,22 @@
 import { useForm } from "react-hook-form";
-
-
+import axiosPublic from "../../../api";
+import toast from "react-hot-toast";
 
 const NewTask = () => {
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
-    const onSubmit = (data) => {
-      console.log(data)
-  }
-
-
+  const onSubmit = async (data) => {
+    const { data: newtask } = await axiosPublic.post("/newtask", data);
+    if (newtask?.acknowledged) {
+      toast.success("Create a new Task");
+      reset()
+    }
+    console.log(newtask);
+  };
 
   return (
     <div className="">
