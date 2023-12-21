@@ -5,7 +5,7 @@ const Navbar = () => {
   const navItem = (
     <>
       <li className="font-light text-white text-lg">
-        <Link>Home</Link>
+        <Link to={'/'}>Home</Link>
       </li>
       <li className="font-light text-white text-lg">
         <Link to="/dashboard">DashBoard</Link>
@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="pt-6">
+    <div className="lg:pt-6"> 
       <Container>
         <div className="navbar">
           <div className="navbar-start">

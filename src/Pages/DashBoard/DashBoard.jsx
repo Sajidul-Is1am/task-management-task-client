@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { VscChecklist } from "react-icons/vsc";
 import { IoMdAdd } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
+import { IoSearchSharp } from "react-icons/io5";
+import { IoIosNotifications } from "react-icons/io";
+
+
 const DashBoard = () => {
   return (
     <div className="grid grid-cols-12 rounded-xl">
@@ -33,7 +37,7 @@ const DashBoard = () => {
                 </Link>
               </li>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
-                <Link>
+                <Link to={'/dashboard/tasks'}>
                   <VscChecklist />
                   Tasks
                 </Link>
@@ -46,7 +50,7 @@ const DashBoard = () => {
               </li>
               <div className="divider"></div>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
-                <Link to={'/'}>
+                <Link to={"/"}>
                   <IoHomeOutline /> Home
                 </Link>
               </li>
@@ -54,7 +58,31 @@ const DashBoard = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-10"></div>
+      <div className="col-span-10 w-full pt-4 px-4">
+        <div className="w-full flex items-center">
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full input rounded-r-none bg-gray-200"
+          />
+          <button className="btn join-item bg-gray-200 rounded-l-none">
+            Search
+            <IoSearchSharp  />
+          </button>
+          <IoIosNotifications className="" size={30} />
+          <div className="avatar online">
+            <div className="w-12 rounded-full">
+              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+                  </div>
+                  
+              </div>
+              <div className="divider"></div>
+
+              <div>
+                  <Outlet></Outlet>
+              </div>
+      </div>
     </div>
   );
 };
