@@ -12,7 +12,7 @@ const DashBoard = () => {
       <div className="col-span-2 border-r-2">
         <div className="drawer lg:drawer-open">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content flex flex-col items-center justify-center">
+          <div className="drawer-content flex flex-col items-center justify-end">
             {/* Page content here */}
             <label
               htmlFor="my-drawer-2"
@@ -44,7 +44,7 @@ const DashBoard = () => {
                 </Link>
               </li>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
-                <Link>
+                <Link to={"/dashboard/newtask"}>
                   <IoMdAdd />
                   New Task
                 </Link>

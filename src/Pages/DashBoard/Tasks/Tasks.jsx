@@ -12,8 +12,18 @@ const Tasks = () => {
             To Do
           </h4>
           <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum magni,
-            ut, sit in asperiores distinctio similique dolores, iusto ad hic
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
           </div>
         </div>
         <div className="p-2  bg-gray-300  rounded-md h-[530px] overflow-y-scroll">

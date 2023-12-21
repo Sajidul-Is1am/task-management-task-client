@@ -6,6 +6,7 @@ import Tasks from "../Pages/DashBoard/Tasks/Tasks";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import Registration from "../Pages/RegistrationPage/Registration";
 import PrivetRoute from "./PrivetRoute";
+import NewTask from "../Pages/DashBoard/NewTask/NewTask";
 
 const Route = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const Route = createBrowserRouter([
       {
         path: "/dashboard/tasks",
         element: <Tasks />,
+      },
+      {
+        path: "/dashboard/newtask",
+        element: <NewTask />,
       },
     ],
   },
