@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
 import { CgGoogleTasks } from "react-icons/cg";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+  const handleLogout = () => {
+    if (user) {
+      logOut()
+        .then((res) => {
+          console.log(res.user);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  };
+  console.log(user);
   const navItem = (
     <>
       <li className="font-light text-white text-lg">
-        <Link to={'/'}>Home</Link>
+        <Link to={"/"}>Home</Link>
       </li>
       <li className="font-light text-white text-lg">
-        <Link to="/dashboard">DashBoard</Link>
+        {user && <Link to="/dashboard">DashBoard</Link>}
       </li>
       <li className="font-light text-white text-lg">
         <Link>third</Link>
@@ -16,7 +31,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="lg:pt-6"> 
+    <div className="lg:pt-6">
       <Container>
         <div className="navbar">
           <div className="navbar-start">
@@ -57,7 +72,11 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navItem}</ul>
           </div>
           <div className="navbar-end text-white ">
-            <a className="">LogOut</a>
+            <a  onClick={handleLogout} className="cursor-pointer">
+              {
+                user?"logOut":<Link to={'/login'}>Login</Link>
+              }
+            </a>
           </div>
         </div>
       </Container>

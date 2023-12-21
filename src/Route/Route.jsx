@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home/Home";
 import DashBoard from "../Pages/DashBoard/DashBoard";
 import Tasks from "../Pages/DashBoard/Tasks/Tasks";
 import LoginPage from "../Pages/LoginPage/LoginPage";
+import Registration from "../Pages/RegistrationPage/Registration";
+import PrivetRoute from "./PrivetRoute";
 
 const Route = createBrowserRouter([
   {
@@ -18,11 +20,19 @@ const Route = createBrowserRouter([
         path: "/login",
         element: <LoginPage />,
       },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashBoard />,
+    element: (
+      <PrivetRoute>
+        <DashBoard />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/dashboard/tasks",

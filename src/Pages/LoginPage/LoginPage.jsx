@@ -1,9 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Shared/Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const LoginPage = () => {
+  const navigate = useNavigate()
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  // login with email passwrd
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+        navigate('/')
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  // login with google
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   return (
     <div className="">
       <div className="bg-[#3fc2bd]">
@@ -11,14 +42,15 @@ const LoginPage = () => {
       </div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-center">
+            <h1 className="text-5xl font-bold mb-12">Login Now..</h1>
             <img
               src="https://i.ibb.co/HGWZhyx/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cl.png"
               alt=""
             />
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -28,6 +60,7 @@ const LoginPage = () => {
                   placeholder="email"
                   className="input input-bordered"
                   required
+                  name="email"
                 />
               </div>
               <div className="form-control">
@@ -39,6 +72,7 @@ const LoginPage = () => {
                   placeholder="password"
                   className="input input-bordered"
                   required
+                  name="password"
                 />
                 <p className="mt-2">
                   Don't have any account{" "}
@@ -51,7 +85,10 @@ const LoginPage = () => {
                 </p>
                 <div className="divider"></div>
                 <div>
-                  <button className="btn w-full mb-2 bg-none btn-outline transition duration-500">
+                  <button
+                    onClick={handleGoogleLogin}
+                    className="btn w-full mb-2 bg-none btn-outline transition duration-500"
+                  >
                     <FcGoogle size={25} />
                     Google Login
                   </button>
@@ -62,7 +99,9 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
               </div>
             </form>
           </div>
