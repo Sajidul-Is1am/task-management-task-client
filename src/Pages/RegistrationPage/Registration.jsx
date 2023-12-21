@@ -2,29 +2,45 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Shared/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
+import { ImageUpload } from "../../Utility/Utility";
 
 const Registration = () => {
-    const navigate = useNavigate()
-  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
-      const form = e.target;
+    const form = e.target;
     //   this two item for update
     const name = form.name.value;
-    const image = form.image.files;
+    const photo = form.photo.files[0];
     const email = form.email.value;
     const password = form.password.value;
 
-      createUser(email, password)
-          .then(res => {
-              console.log(res.user);
-              navigate('/')
-          })
-          .catch(err => {
-          console.log(err.message);
+    const imageData = await ImageUpload(photo);
+      console.log(imageData);
+
+    createUser(email, password)
+      .then((res) => {
+        toast.success("Successfully Registration!");
+            navigate("/");
+            console.log(res.user);
+        // updateUserProfile(name, photo)
+        //   .then((res) => {
+        //     toast.success("Successfully Registration!");
+        //     navigate("/");
+        //     console.log(res.user);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err.message);
+        //   });
       })
+      .catch(err => {
+      console.log(err.message);
+    })
   };
+
 
   return (
     <div>
@@ -63,7 +79,7 @@ const Registration = () => {
                   <input
                     type="file"
                     className="file-input file-input-bordered file-input-accent w-full max-w-xs"
-                    name="image"
+                    name="photo"
                   />
                 </div>
                 <div className="form-control">

@@ -1,24 +1,29 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Shared/Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
-  const navigate = useNavigate()
-  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+  const navigate = useNavigate();
+  const { signIn, signInWithGoogle, singInwithGithub } =
+    useContext(AuthContext);
   // login with email passwrd
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     signIn(email, password)
       .then((res) => {
         console.log(res.user);
-        navigate('/')
+        toast.success("Successfully Login!");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
@@ -29,6 +34,20 @@ const LoginPage = () => {
     signInWithGoogle()
       .then((res) => {
         console.log(res.user);
+        toast.success("Successfully Login!");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  // login with github
+  const handelGithubLogin = () => {
+    singInwithGithub()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully Login!");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
@@ -92,7 +111,10 @@ const LoginPage = () => {
                     <FcGoogle size={25} />
                     Google Login
                   </button>
-                  <button className="btn w-full bg-none btn-outline transition duration-500">
+                  <button
+                    onClick={handelGithubLogin}
+                    className="btn w-full bg-none btn-outline transition duration-500"
+                  >
                     <FaGithub size={25} />
                     Github Login
                   </button>

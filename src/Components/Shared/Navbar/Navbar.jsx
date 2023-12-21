@@ -23,10 +23,10 @@ const Navbar = () => {
         <Link to={"/"}>Home</Link>
       </li>
       <li className="font-light text-white text-lg">
-        {user && <Link to="/dashboard">DashBoard</Link>}
+        <Link to="/dashboard">DashBoard</Link>
       </li>
       <li className="font-light text-white text-lg">
-        <Link>third</Link>
+        <Link to={'/'}>third</Link>
       </li>
     </>
   );

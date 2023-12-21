@@ -1,10 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { VscChecklist } from "react-icons/vsc";
-import { IoMdAdd } from "react-icons/io";
-import { IoHomeOutline } from "react-icons/io5";
-import { IoSearchSharp } from "react-icons/io5";
-import { IoIosNotifications } from "react-icons/io";
+import { IoHomeOutline, IoSearchSharp } from "react-icons/io5";
+import { IoIosNotifications, IoMdAdd } from "react-icons/io";
+import { GrFormPrevious } from "react-icons/gr";
 
 
 const DashBoard = () => {
@@ -19,7 +18,7 @@ const DashBoard = () => {
               htmlFor="my-drawer-2"
               className="btn btn-primary drawer-button lg:hidden"
             >
-              Open drawer
+              Open
             </label>
           </div>
           <div className="drawer-side">
@@ -28,16 +27,18 @@ const DashBoard = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="menu px-16  min-h-full space-y-6 text-base-content">
+            <ul className="menu px-10  min-h-full space-y-6 text-base-content">
               {/* Sidebar content here */}
-              <h1 className="text-center pt-10 pb-16 text-2xl">TaskMinder.</h1>
+              <h1 className="text-center pt-10 pb-16 text-2xl font-bold">
+                ProTaskMagnet.
+              </h1>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
                 <Link>
                   <LuLayoutDashboard /> DashBoard
                 </Link>
               </li>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
-                <Link to={'/dashboard/tasks'}>
+                <Link to={"/dashboard/tasks"}>
                   <VscChecklist />
                   Tasks
                 </Link>
@@ -46,6 +47,12 @@ const DashBoard = () => {
                 <Link>
                   <IoMdAdd />
                   New Task
+                </Link>
+              </li>
+              <li className="text-lg bg-[#EEF2FC] rounded-md">
+                <Link>
+                  <GrFormPrevious />
+                  Previous Tasks
                 </Link>
               </li>
               <div className="divider"></div>
@@ -67,21 +74,20 @@ const DashBoard = () => {
           />
           <button className="btn join-item bg-gray-200 rounded-l-none">
             Search
-            <IoSearchSharp  />
+            <IoSearchSharp />
           </button>
           <IoIosNotifications className="" size={30} />
           <div className="avatar online">
             <div className="w-12 rounded-full">
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
-                  </div>
-                  
-              </div>
-              <div className="divider"></div>
+          </div>
+        </div>
+        <div className="divider"></div>
 
-              <div>
-                  <Outlet></Outlet>
-              </div>
+        <div>
+          <Outlet></Outlet>
+        </div>
       </div>
     </div>
   );

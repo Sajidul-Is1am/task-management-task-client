@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Container from "../../../Components/Shared/Container/Container";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 
 const Banner = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div>
       <Container>
@@ -17,7 +20,7 @@ const Banner = () => {
             <button to={"/dashboard"} className="">
               <Link
                 className="px-6 py-4  bg-[#3fc2bd] transition duration-500 text-white rounded-tl-2xl rounded-br-2xl hover:bg-[#419e9b]"
-                to={"/login"}
+                to={`${user?"/dashboard":"/login"}`}
               >
                 {" "}
                 Explore More
