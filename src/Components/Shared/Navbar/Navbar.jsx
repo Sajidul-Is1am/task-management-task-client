@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
+import { CgGoogleTasks } from "react-icons/cg";
 const Navbar = () => {
   const navItem = (
     <>
       <li className="font-light text-white text-lg">
-        <Link>first</Link>
+        <Link>Home</Link>
       </li>
       <li className="font-light text-white text-lg">
         <Link to="/dashboard">DashBoard</Link>
@@ -47,8 +48,9 @@ const Navbar = () => {
                 {navItem}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">
-              <img src="https://i.ibb.co/q9c8J7z/mainLogo.png" alt="" />
+            <a className="btn btn-ghost text-xl text-white">
+              <CgGoogleTasks size={40} />
+              ProTaskMagnet
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
