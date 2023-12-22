@@ -9,6 +9,7 @@ import PrivetRoute from "./PrivetRoute";
 import NewTask from "../Pages/DashBoard/NewTask/NewTask";
 import PreviousTask from "../Pages/DashBoard/PreviousTask/PreviousTask";
 import DashHome from "../Pages/DashBoard/DashHome/DashHome";
+import UpdateTask from "../Pages/DashBoard/Tasks/UpdateTask/UpdateTask";
 
 const Route = createBrowserRouter([
   {
@@ -62,6 +63,14 @@ const Route = createBrowserRouter([
         element: (
           <PrivetRoute>
             <PreviousTask />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/dashboard/update/:id",
+        element: (
+          <PrivetRoute>
+            <UpdateTask />
           </PrivetRoute>
         ),
       },

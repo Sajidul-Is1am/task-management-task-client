@@ -59,11 +59,8 @@ const TodoCard = ({ taskItem, refetch }) => {
         </div>
         {/* delete */}
         <div className="absolute top-0 right-0 p-4">
-          <Link to={_id}>
-            <FaEdit
-              size={25}
-              className="text-rose-600"
-            />
+          <Link to={`/dashboard/update/${_id}`}>
+            <FaEdit size={25} className="text-rose-600" />
           </Link>
         </div>
         {/* delete start */}
