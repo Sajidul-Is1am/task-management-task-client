@@ -26,10 +26,11 @@ const Navbar = () => {
         {user && <Link to="/dashboard">DashBoard</Link>}
       </li>
       <li className="font-light text-white text-lg">
-        <Link to={"/"}>third</Link>
+        <Link to={"/"}>Who Benefits</Link>
       </li>
     </>
   );
+  
   return (
     <div className="lg:pt-6">
       <Container>

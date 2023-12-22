@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import axiosPublic from "../../../api";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 
 const NewTask = () => {
+  const {user} = useContext(AuthContext)
   const {
     register,
     reset,
@@ -10,7 +13,9 @@ const NewTask = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = async (data) => {
-    const { data: newtask } = await axiosPublic.post("/newtask", data);
+  
+   const datawithMail = { ...data, email: user?.email };
+    const { data: newtask } = await axiosPublic.post("/newtask", datawithMail);
     if (newtask?.acknowledged) {
       toast.success("Create a new Task");
       reset()

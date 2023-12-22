@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { ImageUpload } from "../../Utility/Utility";
+import axiosPublic from "../../api";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -20,12 +21,17 @@ const Registration = () => {
 
     const imageData = await ImageUpload(photo);
       console.log(imageData);
-
+    const userInfo = {
+      email,name
+    }
+    console.log(userInfo);
     createUser(email, password)
-      .then((res) => {
+      .then( async(res) => {
         toast.success("Successfully Registration!");
             navigate("/");
-            console.log(res.user);
+        console.log(res.user);
+        const data = await axiosPublic.put(`/users/${email}`, userInfo);
+        console.log(data.data);
         // updateUserProfile(name, photo)
         //   .then((res) => {
         //     toast.success("Successfully Registration!");

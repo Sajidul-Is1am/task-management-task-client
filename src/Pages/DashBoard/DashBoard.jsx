@@ -4,9 +4,13 @@ import { VscChecklist } from "react-icons/vsc";
 import { IoHomeOutline, IoSearchSharp } from "react-icons/io5";
 import { IoIosNotifications, IoMdAdd } from "react-icons/io";
 import { GrFormPrevious } from "react-icons/gr";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { Query, useQuery } from "@tanstack/react-query";
 
 
 const DashBoard = () => {
+  const { user } = useContext(AuthContext)
   return (
     <div className="grid grid-cols-12 rounded-xl">
       <div className="col-span-2 border-r-2">
@@ -50,7 +54,7 @@ const DashBoard = () => {
                 </Link>
               </li>
               <li className="text-lg bg-[#EEF2FC] rounded-md">
-                <Link>
+                <Link to={`/dashboard/previous`}>
                   <GrFormPrevious />
                   Previous Tasks
                 </Link>
