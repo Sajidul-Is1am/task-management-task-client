@@ -25,7 +25,7 @@ const PreviousTask = () => {
         Previous Tasks
       </h3>
 
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 h-[500px] overflow-y-scroll">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 max-h-[500px] overflow-y-scroll">
         {data?.map((previous) => (
           <PreviousCard
             key={previous._id}

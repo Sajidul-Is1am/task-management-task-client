@@ -11,7 +11,7 @@ const Navbar = () => {
       logOut()
         .then((res) => {
           console.log(res.user);
-           toast.success("SuccesFully Logout");
+          toast.success("SuccesFully Logout");
         })
         .catch((err) => {
           console.log(err.message);
@@ -19,6 +19,17 @@ const Navbar = () => {
     }
   };
   console.log(user);
+  // smooth scroll start
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+  // smooth scroll end
   const navItem = (
     <>
       <li className="font-light text-white text-lg">
@@ -28,7 +39,7 @@ const Navbar = () => {
         {user && <Link to="/dashboard">DashBoard</Link>}
       </li>
       <li className="font-light text-white text-lg">
-        <Link to={"/"}>Who Benefits</Link>
+        <a href="#whobanifit">Who Banifits</a>
       </li>
     </>
   );

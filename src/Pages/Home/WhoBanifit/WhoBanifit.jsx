@@ -1,8 +1,12 @@
+
 import Container from "../../../Components/Shared/Container/Container";
 import "./WhoBanifit.css";
 const WhoBanifit = () => {
+
+  
+
   return (
-    <div className=" ">
+    <div id="whobanifit" className=" ">
       <Container>
         <div className="">
           <h3 className="text-xl font-semibold text-center">Who Benefits</h3>
