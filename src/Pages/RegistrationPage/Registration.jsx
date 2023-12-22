@@ -49,7 +49,7 @@ const Registration = () => {
         console.log(err.message);
       });
   };
-  console.log(user);
+
 
   return (
     <div>

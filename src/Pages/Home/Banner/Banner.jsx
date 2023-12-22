@@ -10,8 +10,8 @@ const Banner = () => {
       <Container>
         <div className="md:py-6 mt-16 grid md:grid-cols-2 grid-cols-1 justify-between items-center">
           <div className="space-y-4">
-            <h1 className="text-7xl font-bold">Task</h1>
-            <h4 className="text-4xl font-semibold">Management Pro</h4>
+            <h1 className="lg:text-7xl md:text-5xl text-4xl font-bold">Task</h1>
+            <h4 className="lg:text-4xl md:text-2xl text-xl font-semibold">Management Pro</h4>
             <p className="max-w-[500px] pb-6">
               Simplify collaboration and boost productivity with our seamless
               team task management solution. Effortlessly coordinate tasks, stay
@@ -19,7 +19,7 @@ const Banner = () => {
             </p>
             <button to={"/dashboard"} className="">
               <Link
-                className="px-6 py-4  bg-[#3fc2bd] transition duration-500 text-white rounded-tl-2xl rounded-br-2xl hover:bg-[#419e9b]"
+                className="lg:px-6 lg:py-4 py-2 px-4  bg-[#3fc2bd] transition duration-500 text-white rounded-tl-2xl rounded-br-2xl hover:bg-[#419e9b]"
                 to={`${user?"/dashboard":"/login"}`}
               >
                 {" "}

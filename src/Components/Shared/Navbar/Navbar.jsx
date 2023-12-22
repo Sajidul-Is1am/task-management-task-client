@@ -3,6 +3,7 @@ import Container from "../Container/Container";
 import { CgGoogleTasks } from "react-icons/cg";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   const handleLogout = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
       logOut()
         .then((res) => {
           console.log(res.user);
+           toast.success("SuccesFully Logout");
         })
         .catch((err) => {
           console.log(err.message);
@@ -30,7 +32,7 @@ const Navbar = () => {
       </li>
     </>
   );
-  
+
   return (
     <div className="lg:pt-6">
       <Container>
@@ -73,11 +75,13 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navItem}</ul>
           </div>
           <div className="navbar-end text-white ">
-            <a  onClick={handleLogout} className="cursor-pointer">
-              {
-                user?"logOut":<Link to={'/login'}>Login</Link>
-              }
-            </a>
+            {user ? (
+              <a onClick={handleLogout} className="cursor-pointer">
+                LogOut
+              </a>
+            ) : (
+              <Link to={"/login"}>Login</Link>
+            )}
           </div>
         </div>
       </Container>

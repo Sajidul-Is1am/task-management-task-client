@@ -27,7 +27,7 @@ const NewTask = () => {
     <div className="">
       <h3 className="text-center text-4xl font-bold my-8">New Tasks</h3>
       <form
-        className="bg-[#CAD9F6] px-10 py-28 grid grid-cols-2 w-full gap-12 rounded-md justify-center items-center"
+        className="bg-[#CAD9F6] px-10 py-28 lg:grid lg:grid-cols-2 space-y-5 w-full lg:gap-12 rounded-md justify-center items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-full">
@@ -35,7 +35,7 @@ const NewTask = () => {
             placeholder="Title"
             {...register("title", { required: true })}
             aria-invalid={errors.firstName ? "true" : "false"}
-            className="w-full input"
+            className="w-full input col-span-1"
           />
           {/* {errors.firstName?.type === "required" && (
             <p role="alert">First name is required</p>
@@ -77,7 +77,7 @@ const NewTask = () => {
         </div>
 
         <input
-          className="btn col-span-2 w-2/6 mx-auto"
+          className="btn col-span-2 lg:w-2/6 w-full mx-auto"
           value={"Create Task"}
           type="submit"
         />

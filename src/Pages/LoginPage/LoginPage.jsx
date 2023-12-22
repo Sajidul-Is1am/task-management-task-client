@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import axiosPublic from "../../api";
 
 const LoginPage = () => {
   const location = useLocation();
@@ -33,6 +34,10 @@ const LoginPage = () => {
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((res) => {
+        const email = res?.user?.email;
+        const username = res?.user?.displayName;
+        const userInfo = { email, username };
+        axiosPublic.put(`/users/${email}`, userInfo);
         console.log(res.user);
         toast.success("Successfully Login!");
         navigate("/");
@@ -45,6 +50,10 @@ const LoginPage = () => {
   const handelGithubLogin = () => {
     singInwithGithub()
       .then((res) => {
+        const email = res?.user?.email;
+        const username = res?.user?.displayName;
+        const userInfo = { email, username };
+        axiosPublic.put(`/users/${email}`, userInfo);
         console.log(res.user);
         toast.success("Successfully Login!");
         navigate("/");

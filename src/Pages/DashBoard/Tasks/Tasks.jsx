@@ -25,6 +25,118 @@ const Tasks = () => {
               Description : <span className="text-base font-normal">This is Description</span>
             </h3>
           </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
+          <div className="bg-[#CAD9F6] p-4 rounded-md m-4">
+            <h3 className="font-semibold text-lg">
+              Title : <span className="text-base font-normal">This is Title</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Date : <span className="text-base font-normal">This is Date</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Priority : <span className="text-base font-normal">This is Priority</span>
+            </h3>
+            <h3 className="font-semibold text-lg">
+              Description : <span className="text-base font-normal">This is Description</span>
+            </h3>
+          </div>
         </div>
         <div className="p-2  bg-gray-300  rounded-md h-[530px] overflow-y-scroll">
           <h4 className="mt-3 ml-4 flex items-center gap-2 text-xl font-bold">

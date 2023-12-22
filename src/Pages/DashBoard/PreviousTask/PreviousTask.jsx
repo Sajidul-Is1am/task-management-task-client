@@ -21,11 +21,17 @@ const PreviousTask = () => {
   }
   return (
     <div>
-      <h3 className="text-center text-4xl font-bold mt-4 mb-6">Previous Tasks</h3>
+      <h3 className="text-center text-4xl font-bold mt-4 mb-6 ">
+        Previous Tasks
+      </h3>
 
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 h-[500px] overflow-y-scroll">
         {data?.map((previous) => (
-          <PreviousCard key={previous._id} previous={previous} refetch={refetch}></PreviousCard>
+          <PreviousCard
+            key={previous._id}
+            previous={previous}
+            refetch={refetch}
+          ></PreviousCard>
         ))}
       </div>
     </div>
