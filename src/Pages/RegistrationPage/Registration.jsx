@@ -8,7 +8,7 @@ import axiosPublic from "../../api";
 
 const Registration = () => {
   const navigate = useNavigate();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, user, profileUpdate } = useContext(AuthContext);
 
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -20,33 +20,36 @@ const Registration = () => {
     const password = form.password.value;
 
     const imageData = await ImageUpload(photo);
-      console.log(imageData);
+    console.log(imageData);
     const userInfo = {
-      email,name
-    }
-    console.log(userInfo);
+      email,
+      name,
+    };
+    console.log(name, imageData?.data?.data?.display_url);
+    // console.log(userInfo);
     createUser(email, password)
-      .then( async(res) => {
+      .then(async (res) => {
         toast.success("Successfully Registration!");
-            navigate("/");
+        navigate("/");
         console.log(res.user);
-        const data = await axiosPublic.put(`/users/${email}`, userInfo);
-        console.log(data.data);
-        // updateUserProfile(name, photo)
-        //   .then((res) => {
-        //     toast.success("Successfully Registration!");
-        //     navigate("/");
-        //     console.log(res.user);
-        //   })
-        //   .catch((err) => {
-        //     console.log(err.message);
-        //   });
-      })
-      .catch(err => {
-      console.log(err.message);
-    })
-  };
+        axiosPublic.put(`/users/${email}`, userInfo).then((res) => {
+          console.log(res?.data);
+          profileUpdate(name, imageData?.data?.display_url)
+            .then((res) => {
+              console.log(res.user);
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+          console.log(res.data);
 
+        });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  console.log(user);
 
   return (
     <div>

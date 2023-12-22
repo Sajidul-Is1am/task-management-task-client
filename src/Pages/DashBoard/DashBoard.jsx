@@ -6,11 +6,13 @@ import { IoIosNotifications, IoMdAdd } from "react-icons/io";
 import { GrFormPrevious } from "react-icons/gr";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { Query, useQuery } from "@tanstack/react-query";
+// import { Query, useQuery } from "@tanstack/react-query";
 
 
 const DashBoard = () => {
   const { user } = useContext(AuthContext)
+
+  const profileImage = user?.photoURL;
   return (
     <div className="grid grid-cols-12 rounded-xl">
       <div className="col-span-2 border-r-2">
@@ -83,7 +85,7 @@ const DashBoard = () => {
           <IoIosNotifications className="" size={30} />
           <div className="avatar online">
             <div className="w-12 rounded-full">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src={profileImage} />
             </div>
           </div>
         </div>

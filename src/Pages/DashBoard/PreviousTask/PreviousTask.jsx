@@ -7,7 +7,7 @@ import PreviousCard from "./PreviousCard";
 
 const PreviousTask = () => {
   const { user } = useContext(AuthContext);
-  const { data, isLoading } = useQuery({
+  const { data, isLoading,refetch } = useQuery({
     queryKey: ["previousQuery"],
     queryFn: async () => {
       const response = await axiosPublic.get(`/previous/${user?.email}`);
@@ -23,9 +23,9 @@ const PreviousTask = () => {
     <div>
       <h3 className="text-center text-4xl font-bold mt-4 mb-6">Previous Tasks</h3>
 
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         {data?.map((previous) => (
-          <PreviousCard key={previous._id} previous={previous}></PreviousCard>
+          <PreviousCard key={previous._id} previous={previous} refetch={refetch}></PreviousCard>
         ))}
       </div>
     </div>

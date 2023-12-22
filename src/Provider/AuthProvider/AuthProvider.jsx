@@ -27,6 +27,13 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  const profileUpdate = (username, photo) => {
+    setLoading(true)
+    return updateProfile(auth.currentUser, {
+      displayName: username,
+      photoURL: photo,
+    });
+  };
 
   const signIn = (email, password) => {
     setLoading(true);
@@ -38,8 +45,8 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-    const singInwithGithub = () => {
-      setLoading(true)
+  const singInwithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -51,13 +58,6 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
-  };
-
-  const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
   };
 
   // onAuthStateChange
@@ -77,12 +77,12 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     createUser,
+    profileUpdate,
     signIn,
     signInWithGoogle,
     singInwithGithub,
     resetPassword,
     logOut,
-    updateUserProfile,
   };
 
   return (
